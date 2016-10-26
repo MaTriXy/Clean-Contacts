@@ -18,7 +18,8 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class) public class GetContactsInteractorShould {
 
@@ -32,6 +33,15 @@ import static org.mockito.Mockito.*;
 
   @Before public void initialise() {
     interactor = new GetContactsInteractor(localGateway, networkGateway);
+  }
+
+  @Test public void update_cache_when_hit_network() throws Exception {
+    when(localGateway.obtainContacts()).thenReturn(EMPTY_LIST);
+    when(networkGateway.obtainContacts()).thenReturn(CONTACTS);
+
+    interactor.call();
+
+    verify(localGateway).persist(CONTACTS);
   }
 
   @Test public void return_networks_contacts_when_network_success() {

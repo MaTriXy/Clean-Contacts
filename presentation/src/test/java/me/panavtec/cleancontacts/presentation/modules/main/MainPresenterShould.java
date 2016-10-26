@@ -8,7 +8,7 @@ import me.panavtec.cleancontacts.domain.model.Contact;
 import me.panavtec.cleancontacts.presentation.TestInteractorInvoker;
 import me.panavtec.cleancontacts.presentation.TestViewInjector;
 import me.panavtec.cleancontacts.presentation.model.PresentationContact;
-import me.panavtec.cleancontacts.presentation.model.mapper.base.ListMapper;
+import me.panavtec.cleancontacts.domain.mappers.ListMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static java.util.Collections.singletonList;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class) public class MainPresenterShould {
 
@@ -51,5 +53,15 @@ import static org.mockito.Mockito.*;
     presenter.onResume();
 
     verify(view).showGetContactsError();
+  }
+
+
+  @Test public void refresh_contact_list_when_refresh_success() {
+    when(getContactsInteractor.call()).thenReturn(SUCCESS_RESPONSE);
+
+    presenter.onRefresh();
+
+    verify(view).refreshUi();
+    verify(view).refreshContactsList(anyListOf(PresentationContact.class));
   }
 }

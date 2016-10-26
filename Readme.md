@@ -1,5 +1,4 @@
-#CleanContacts [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CleanContacts-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/1649)
-
+#CleanContacts [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CleanContacts-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/1649) [![Build Status](https://img.shields.io/travis/PaNaVTEC/Clean-Contacts.svg)](https://travis-ci.org/PaNaVTEC/Clean-Contacts) [![codecov.io](https://codecov.io/github/PaNaVTEC/Clean-Contacts/coverage.svg?branch=develop)](https://codecov.io/github/PaNaVTEC/Clean-Contacts?branch=develop)
 Clean contacts is a sample project to illustrate Clean architecture in Android. It has also many other details that hopefully will be useful too.
 
 ##Speaks
@@ -8,7 +7,9 @@ I gave a talk in Salamanca (Spain) about this implementation, here is the video:
 Slides:
 [Spanish] (http://es.slideshare.net/ChristianPanadero/my-way-to-clean-android-android-day-salamanca-edition), [English] (http://es.slideshare.net/ChristianPanadero/my-way-to-clean-android-android-day-salamanca-edition-45930288)
 
-##How to start with this localGateway
+I algo gave a 2nd version of the talk with the new features but unfortunately the video was not recorded or at lest not uploaded, anyway, the slides of that 2nd version are [here to download](http://es.slideshare.net/ChristianPanadero/my-way-to-clean-android-v2-english-droidcon-spain)
+
+##How to start with this repository
 The project is divided in 4 modules:
 
 * App (Android): Contains UI, Dependency injection (Configuration) and implementation details of some figures like the Bus and Invoker.
